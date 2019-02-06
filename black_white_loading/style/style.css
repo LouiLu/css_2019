@@ -18,7 +18,7 @@ body {
 
 .center div {
   position: relative;
-  background: #000;
+  /* background: #000; */
   height: 100px;
   margin: -30px 0;
   z-index: 2;
@@ -31,7 +31,7 @@ body {
 .center div:nth-child(2),
 .center div:nth-child(4) {
   transform: skewY(14.5deg);
-  background: #ccc;
+  /* background: #ccc; */
   z-index: 1;
 }
 
@@ -75,6 +75,13 @@ body {
   transform-origin: right;
   animation-delay: 2s;
 }
+.center div:nth-child(4):before {
+  animation: animate 1s linear forwards;
+  transform-origin: left;
+  animation-delay: 3s;
+  width: 65%;
+  left: 0;
+}
 
 @keyframes animate {
   0% {
@@ -82,5 +89,45 @@ body {
   }
   100% {
     transform: scaleX(1);
+  }
+}
+
+.center div:nth-child(1):after,
+.center div:nth-child(3):after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.center div h2 {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+  opacity: 0;
+  color: #fff;
+}
+
+.center div:nth-child(1) h2 {
+  animation: fadeText 0.5s linear forwards;
+  animation-delay: 1s;
+  font-size: 40px;
+}
+.center div:nth-child(3) h2 {
+  animation: fadeText 0.5s linear forwards;
+  animation-delay: 3s;
+  font-size: 80px;
+  font-weight: 600;
+}
+@keyframes fadeText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
